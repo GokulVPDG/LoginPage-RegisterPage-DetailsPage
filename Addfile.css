@@ -1,0 +1,80 @@
+body {
+
+    text-align: center;
+    margin-top: 200px;
+    background-image: url("https://www.codewithrandom.com/wp-content/uploads/2022/11/15-Bootstrap-login-forms38.png");
+}
+
+#div1 {
+
+    width: 300px;
+    padding: 30px;
+    border: 1px solid black;
+    border-radius: 10px;
+    border-color: rgb(255, 255, 255);
+    background-color: #ffffff;
+    margin-left: 200px;
+
+}
+
+#container {
+    display: flex;
+    flex-direction: row;
+}
+
+#div2 {
+    width: 300px;
+    padding: 30px;
+    border: 1px solid black;
+    border-radius: 10px;
+    border-color: rgb(255, 255, 255);
+    background-color: #ffffff;
+    margin-left: 100px;
+
+}
+
+.file {
+
+    align-items: center;
+    margin-left: 50px;
+    text-transform: uppercase;
+
+
+}
+
+h2 {
+
+    background-color: #4CAF50;
+    color: #ffffff;
+    border-radius: 10px;
+    border-color: #ffffff;
+    font-family: Arial, Helvetica, sans-serif;
+    cursor: pointer;
+    margin-right: 20px;
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 10px;
+    margin-bottom: 50px;
+}
+
+#file-input1,
+#file-input {
+
+    margin: auto;
+    margin-left: -10px;
+    padding: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+    background-color: #ee3902;
+    border: 1px solid #ee3902;
+    border-radius: 5px;
+}
+
+.file {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}

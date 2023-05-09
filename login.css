@@ -1,0 +1,96 @@
+body {
+  /* background-color: #000000; */
+  text-align: center;
+  margin-top: 150px;
+  background-image: url("https://www.codewithrandom.com/wp-content/uploads/2022/11/15-Bootstrap-login-forms38.png");
+}
+
+#container {
+  margin: auto;
+  width: 300px;
+  height: 350px;
+  padding: 20px;
+  background-color: #ffffff;
+  border: 1px solid #050404;
+  border-radius: 10px;
+
+}
+
+#signin {
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  margin: auto;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  background-color: #4CAF50;
+  color: #ffffff;
+  font-family: Arial, Helvetica, sans-serif;
+
+}
+
+#form {
+  display: flex;
+  flex-direction: column;
+}
+
+#divuser {
+  margin-bottom: 10px;
+}
+
+#divpass {
+
+  margin-top: 10px;
+}
+
+label {
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+input {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #cccccc;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+#login {
+  background-color: #4CAF50;
+  color: #ffffff;
+  padding: 12px;
+  border-radius: 10px;
+  border-color: #ffffff;
+  cursor: pointer;
+  margin-top: 10px;
+  margin-left: 220px;
+  font-family: Arial, Helvetica, sans-serif;
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+.input:hover {
+
+  box-shadow: 0 0 10px #030303;
+}
+
+#login:hover {
+
+  box-shadow: 0 0 20px #00e708;
+}
+
+#signup {
+  font-size: 14px;
+  text-align: center;
+
+
+}
+
+#signup a {
+  color: #4CAF50;
+  text-decoration: none;
+
+}

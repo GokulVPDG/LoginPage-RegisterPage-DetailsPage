@@ -1,0 +1,242 @@
+#table{
+
+    margin: auto;
+    width: auto;
+    height: auto;
+    background-color: #ffffff;
+    border: 3px solid #000000;
+    position: relative;
+    margin-top: 50px;
+    padding: 50px;
+    border-style: inset;
+    
+  }
+
+  h1 {
+    font-size: 36px;
+    font-weight: bold;
+    text-align: center;
+    color: #ffffff;
+    text-shadow: 1px 1px 2px #ccc;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background-color: #4CAF50;
+    border-radius: 10px;
+    margin-left: 120px;
+    margin-right: 120px;
+    padding: 8px;
+    
+  }
+
+  body{
+
+    background-image: url("https://www.codewithrandom.com/wp-content/uploads/2022/11/15-Bootstrap-login-forms38.png");
+  }
+
+  button {
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 16px;
+    color: #000000;
+    border-radius: 10px;
+    font-weight: bolder;
+  
+  }
+
+  button.delete:hover {
+    background-color: #e60505;
+    color: #ffffff;
+  }
+
+  button.update:hover {
+    background-color: #4CAF50;
+    color: #ffffff;
+  }
+
+  #thead{
+    text-align: center;
+    font-size: 20px;
+    font-weight: bolder;
+    margin: auto;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #4CAF50;
+    color: #05ee11;
+    font-family: Arial, Helvetica, sans-serif;
+    border-width: 20px;
+  }
+  
+  #table {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width:80%;
+    position: relative;
+    z-index: 1;
+  }
+
+  #thead th {
+    /* border: 1px solid #ddd; */
+    padding: 8px;
+    text-align: left;
+    background-color: #f2f2f2;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    
+  }
+
+  #user-table-body td {
+    /* border: 1px solid #ddd; */
+    padding: 10px;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  #user-table-body tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+
+  #user-table-body tr:hover {
+    background-color: #ddd;
+  }
+
+  #logout{
+
+    color: rgb(255, 255, 255);
+    text-decoration: none; 
+    border: 1px solid black;
+    background-color: rgb(255, 0, 0);
+    padding: 8px;
+    border-radius: 10px;
+    font-weight: bolder;
+   
+
+  }
+
+  .popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    border: 1px solid black;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    z-index: 999;
+    width: 400px;
+    height: 200px;
+    border-radius: 10px;
+  }
+
+  .popup:before {
+   
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 10px solid transparent;
+    border-bottom: 10px solid white;
+    
+  }
+
+  #adiv{
+
+    text-align: end;
+    margin: auto;
+    margin-top: -105px;
+    margin-right: -5px;
+    padding: 20px;
+    
+  }
+  .popup {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  .popup-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    max-width: 500px;
+    align-items: center;
+    text-align: center;
+  }
+
+  .popup-content label {
+    display: block;
+    margin-bottom: 5px;
+    font-family: Arial, Helvetica, sans-serif;
+    
+  }
+
+  .popup-content select,
+  .popup-content input[type="text"] {
+    width: 80%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid gray;
+    text-align: center;
+    align-items: center;
+  }
+
+  .popup-content input[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
+    text-align: center;
+  }
+
+  #submit{
+
+    transition: box-shadow 0.3s ease-in-out;
+  }
+  .popup-content input[type="submit"]:hover {
+   
+    box-shadow: 0 0 30px #4CAF50;
+  }
+
+  .logout{
+
+    transition: box-shadow 0.3s ease-in-out;
+  }
+
+  .logout:hover{
+
+    box-shadow: 0 0 30px red;
+
+  }
+
+  #divupload{
+
+    margin-left: 1185px;
+  }
+
+  #file-upload{
+
+    color: #ddd;
+    text-decoration: none;
+
+  }
+
+  #file-upload:hover{
+
+    color: #ff0000;
+    background-color: rgb(255, 255, 255);
+    padding: 5px;
+    margin: auto;
+    border-radius: 8px;
+    box-shadow: 0 0 30px rgb(255, 238, 0);
+    font-family: Arial, Helvetica, sans-serif;
+
+  }

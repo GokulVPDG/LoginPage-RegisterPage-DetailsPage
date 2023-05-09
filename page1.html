@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="page1.css">
+    <title>users</title>
+  </head>
+  <body>
+    <h1 style="font-family: Arial, Helvetica, sans-serif;">User Table</h1>
+    <div id="adiv">
+      <button id="logout" class="logout" onclick= "logout()"; style="font-family: Arial, Helvetica, sans-serif;">Logout</button>
+    </div>
+    <div id="divupload">
+      <a href="Addfile.html"id="file-upload">Upload File</a>
+    </div>
+    <div>
+      <table id="table">
+        <thead id="thead">
+          <tr>
+            <th style="font-family: Arial, Helvetica, sans-serif;">    ID       </th>
+            <th style="font-family: Arial, Helvetica, sans-serif;">    Name     </th>
+            <th style="font-family: Arial, Helvetica, sans-serif;">    Email    </th>
+            <th style="font-family: Arial, Helvetica, sans-serif;">    Phone    </th>
+            <th style="font-family: Arial, Helvetica, sans-serif;">    City     </th>
+            <th style="font-family: Arial, Helvetica, sans-serif;">    State    </th>
+            <th style="font-family: Arial, Helvetica, sans-serif;">    Password </th>
+          </tr>
+        </thead>
+        <div class="tbody">
+          <tbody id="user-table-body" style="font-family: Arial, Helvetica, sans-serif;"></tbody>
+        </div>
+      </table>
+    </div>
+
+    <script>
+
+          const tableBody = document.getElementById("user-table-body");
+          fetch("http://localhost:8080/users")
+          .then(response => response.json())
+          .then(users => 
+          {
+            users.users.forEach(user =>
+            {
+              var row = document.createElement("tr");
+
+              var idCell = document.createElement("td");
+              idCell.innerText = user.Id;
+              row.appendChild(idCell);
+
+              const nameCell = document.createElement("td");
+              nameCell.innerText = user.Name;
+              row.appendChild(nameCell);
+
+              const emailCell = document.createElement("td");
+              emailCell.innerText = user.Email;
+              row.appendChild(emailCell);
+
+              const phoneCell = document.createElement("td");
+              phoneCell.innerHTML = user.Phone;
+              row.appendChild(phoneCell);
+
+              const cityCell = document.createElement("td");
+              cityCell.innerText = user.City;
+              row.appendChild(cityCell);
+
+              const stateCell = document.createElement("td");
+              stateCell.innerText = user.State;
+              row.appendChild(stateCell);
+
+              const passwordCell = document.createElement("td");
+              passwordCell.innerText = user.Password;
+              row.appendChild(passwordCell);
+
+              // Add delete button
+              const deleteButton = document.createElement("button");
+              deleteButton.innerText = "Delete";
+              deleteButton.setAttribute("class", "delete");
+
+              const deleteCell = document.createElement("td");
+              deleteCell.appendChild(deleteButton);
+              row.appendChild(deleteCell);
+              
+              deleteButton.addEventListener("click", () => 
+              {
+                deleteUser();
+              });
+
+              function deleteUser()
+              {
+               
+                fetch(`http://localhost:8080/users/${user.Id}`,
+                {
+                  method: "DELETE",
+                })
+                .then((response) =>
+                {
+
+                  if (response.ok) 
+                  {
+                    tableBody.removeChild(row)
+                  }
+                })
+                .catch((error) => console.error(error));
+              }
+ 
+                // Add update button
+                const updateButton = document.createElement("button");
+                updateButton.innerText = "Update";
+                updateButton.setAttribute("class", "update");
+              
+                const updateCell = document.createElement("td");
+                updateCell.appendChild(updateButton);
+                row.appendChild(updateCell);
+
+                tableBody.appendChild(row);
+            })
+
+              const updateButtons = document.querySelectorAll(".update");
+              updateButtons.forEach(button => 
+              {
+                button.addEventListener("click", () => 
+                {
+                  const row = button.closest("tr");
+                  const idcell = row.querySelector("td");
+                  const userId = idcell.innerText;
+                  console.log(userId);
+                  
+                  const popup = document.createElement("div");
+                  popup.setAttribute("class", "popup");
+                  popup.innerHTML = `
+                    <div class="popup-content">
+                      <p>Which field do you want to update?</p>
+                      <form id="update-form">
+                        <label for="field-select">Select a field:</label>
+                        <select id="field-select" name="field">
+                          <option value="name">Username</option>
+                          <option value="email">Email</option>
+                          <option value="phone">Phone</option>
+                          <option value="city">City</option>
+                          <option value="state">State</option>
+                          <option value="password">Password</option>
+                        </select>
+                        <br>
+                        <label for="new-value">Enter new value:</label>
+                        <input type="text" id="new-value" name="new-value">
+                        <input type="hidden" id="update-id" name="update-id">
+                        <input type="submit" id="submit" value="Submit">
+                      </form>
+                    </div>
+                  `;
+                  document.body.appendChild(popup);
+
+                    const form = document.getElementById("update-form");
+                    form.addEventListener("submit", (event) => 
+                    {
+                      event.preventDefault();
+                    
+                      const select = document.getElementById("field-select");
+                      const selectedField = select.value;
+                      console.log(selectedField)
+
+                      const newValueInput = document.getElementById("new-value");
+                      const newValue = newValueInput.value;
+                      console.log(newValue)
+
+                      fetch(`http://localhost:8080/users/${userId}`, 
+                      {
+                        method: "PUT",
+                        headers: {
+                          "Content-Type": "application/json"
+                        },
+                        body: JSON.stringify({
+                          field: selectedField,
+                          value: newValue
+                        })
+                      })
+                      .then(response =>
+                      {
+                        if (!response.ok) {
+                          throw new Error("Failed to update user");
+                        }
+                        return response.json();
+                      })
+                      .then(data => 
+                      {
+                        console.log(data.message);
+                      
+                        location.reload(); 
+                      })
+                      .catch(error => 
+                      {
+                        console.error(error);
+                        alert(error.message);
+                      });
+                            
+                    });
+                });
+              });         
+          })
+          .catch((error) => console.error(error));
+              
+          function logout() 
+          {
+            window.location.replace("login.html");
+          }
+    </script>
+  </body>
+</html>
